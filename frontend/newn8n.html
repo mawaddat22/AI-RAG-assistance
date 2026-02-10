@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Knowledge Assistant</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- n8n Chat CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .hero {
+            text-align: center;
+            max-width: 750px;
+            padding: 50px;
+            backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            line-height: 1.7;
+            opacity: 0.85;
+        }
+
+        .badge {
+            margin-top: 25px;
+            display: inline-block;
+            padding: 10px 18px;
+            border-radius: 30px;
+            background: rgba(255,255,255,0.08);
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 20px;
+            font-size: 0.85rem;
+            opacity: 0.5;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="hero">
+        <h1>AI Knowledge Assistant</h1>
+        <p>
+            Ask your questions and receive precise, context-aware answers 
+            powered by intelligent retrieval and advanced AI models.
+        </p>
+
+        <div class="badge">
+            Secure • Intelligent • Context-Aware
+        </div>
+    </div>
+
+    <footer>
+        © 2026 AI Assistant | Powered by n8n
+    </footer>
+
+    <!-- n8n Chat Script -->
+    <script type="module">
+        import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+        createChat({
+            webhookUrl: 'http://localhost:5678/webhook/f8ffffb0-30e2-472a-8a84-b427401bf8a6/chat',
+            webhookConfig: {
+                method: 'POST'
+            },
+            showWelcomeScreen: true,
+            title: 'AI Assistant',
+            subtitle: 'Ask anything',
+            initialMessages: [
+                'Hello 👋',
+                'How can I assist you today?'
+            ],
+        });
+    </script>
+
+</body>
+</html>
